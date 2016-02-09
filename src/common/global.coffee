@@ -32,7 +32,7 @@ class TabState
     @active  = no
 
   enable: ->
-    @send 'enable', { @useFallback, scriptURI: @bundledScriptURI(), host: LiveReloadGlobal.host, port: LiveReloadGlobal.port }
+    @send 'enable', { @useFallback, scriptURI: @bundledScriptURI(), host: LiveReloadGlobal.hostname, port: LiveReloadGlobal.port }
 
   disable: ->
     @send 'disable'
@@ -75,6 +75,7 @@ LiveReloadGlobal =
   _tabs: []
 
   initialize: ->
+    @hostname = 'localhost'
     @host = '127.0.0.1'
     @port = 35729
     # @client = new LRClient
